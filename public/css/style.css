@@ -1,0 +1,18 @@
+#messages{
+	width: 50%;
+	height: 600px;
+	background-color: cornsilk;
+}
+
+li {
+	list-style: none;
+}
+
+li img{
+	width: 300px;
+}
+
+.sign-on{
+	color: grey;
+	font-style: italic;
+}
