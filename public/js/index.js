@@ -24,14 +24,23 @@ $('document').ready(function(){
   //END SENDING MESSAGES
 
   // CHANGING USERNAME
-  $('#username > button').on('click', function(){
-    socket.emit('change username', $('#username > input').val());
-    return false;
-  });
+  //showhide username input
+  var $userName = $("#username > input");
 
-  $("#username > input").keyup(function(event){
-      if(event.keyCode == 13 && $("username > input").val() !== ""){
-          $("#username > button").click();
+  $('#username h4').on('click', function(){
+      $(this).hide();
+      $userName.show().focus()
+      $userName.focusout(function(){
+          $(this).hide();
+          $('#username h4').show()
+      })
+  })
+    
+  $userName.keyup(function(event){
+      if(event.keyCode == 13 && $userName.val() !== ""){
+          socket.emit('change username', $userName.val());
+          $userName.focusout()
+          return false;
       }
   });
   //END CHANGING USERNAME
@@ -63,9 +72,12 @@ $('document').ready(function(){
 
   }); // END GETTING CHAT MESSAGE
 
+
+
   // USER TYPING
   $("#sending textarea").keyup(function(event){
-    socket.emit('user typing', '')
+    socket.emit('user typing', '');
+    return false
   });
 
   var userTyping = false;

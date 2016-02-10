@@ -1,31 +1,34 @@
 <html>
 <head>
 	<title></title>
+	<link rel="stylesheet" type="text/css" href="./css/normalize.css">
 	<link rel="stylesheet" type="text/css" href="./css/style.css">
 </head>
 <body>
 
-	<div id='username'>
-		<input>
-		<button></button>
+
+
+	<div id='msg-container'>
+		<div id='username'>
+			<h4>Username</h4>
+			<input>
+		</div>
+		<div>
+			<ul id='messages'></ul>
+			<div>
+				<p id='user-typing'></p>
+			</div>
+		</div>
 	</div>
+
 	<div id='sending'>
 		<textarea placeholder='say something'></textarea>
 		<button>Send</button>
 	</div>
-	<div>
-		<ul id='messages'></ul>
-		<div>
-			<p id='user-typing'></p>
-		</div>
-	</div>
-
-
 
 
 	<script src="/socket.io/socket.io.js"></script>
     <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
-    <!-- socket.io file -->
 	<script src="./js/index.js"></script>
 
 </body>
